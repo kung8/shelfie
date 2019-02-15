@@ -1,5 +1,5 @@
 import React , {Component} from 'react';
-import axios from 'axios';
+import Axios from 'axios';
 
 export default class Form extends Component {
     constructor () {
