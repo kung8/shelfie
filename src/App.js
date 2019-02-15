@@ -10,34 +10,17 @@ class App extends Component {
     super();
 
     this.state = {
-        products:[
-          { id: 1,
-            name:'MacBook Pro',
-            price:'1200',
-            imageUrl:'macbook_pro_pic.com'
-          },
-          { id: 2,
-            name: 'MacBook Air',
-            price:'1000',
-            imageUrl:'macbook_air_pic.com'
-          },
-          { id: 3,
-            name:'Lenovo New',
-            price:'1100',
-            imageUrl:'lenovo_pic.com'
-          },
-          { id: 4,
-            name:'Dell Inspiron',
-            price:'700',
-            imageUrl:'dell_inspiron_pic.com'
-          }, 
-          { id: 5,
-            name:'HP',
-            price:'650',
-            imageUrl:'hp_pic.com'
-          }
-        ]
+        products:[]
     };
+  };
+
+  componentDidMount=()=>{
+    axios.get('/api/inventory').then(res=>{
+      console.log(res.data)
+      this.setState({
+        products:res.data
+      })
+    })
   };
 
   render() {

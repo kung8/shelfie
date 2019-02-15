@@ -13,7 +13,7 @@ export default class Dashboard extends Component {
         const mappedInventory = this.props.products.map(product => {
             return (
                 <Product
-                key={product.id}
+                key={product.product_id}
                 product={product}
                 />
             )
