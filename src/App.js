@@ -16,18 +16,25 @@ class App extends Component {
 
   componentDidMount=()=>{
     axios.get('/api/inventory').then(res=>{
-      console.log(res.data)
       this.setState({
         products:res.data
       })
     })
   };
 
+  getAll =()=>{
+    axios.get('/api/inventory').then(res=>{
+      this.setState({
+        products:res.data
+      })
+    })
+  }
+
   render() {
     return (
       <div className="App">
+        <Form products={this.state.products} getAll={this.getAll}/>
         <Dashboard products={this.state.products}/>
-        <Form />
         <Header />
 
       </div>

@@ -1,8 +1,9 @@
 import React , {Component} from 'react';
+import axios from 'axios';
 
 export default class Form extends Component {
-    constructor () {
-        super();
+    constructor (props) {
+        super(props);
         this.state = {
             name:"",
             price:"",
@@ -37,6 +38,15 @@ export default class Form extends Component {
         })
     };
 
+    addProduct=()=>{
+        const {getAll,products} = this.props;
+        const {name,price,imageUrl} = this.state;
+        axios.post('/api/product', {name,price,imageUrl}).then(res =>{
+            console.log(res);
+            getAll();
+            this.handleCancelButton();
+        })
+    }
 
     render () {
         const {name,price,imageUrl} = this.state;
@@ -57,7 +67,7 @@ export default class Form extends Component {
                     value={imageUrl}
                     placeholder="Enter Image URL"/>
                 <button onClick={()=>this.handleCancelButton()}> Cancel</button>          
-                <button> Add to Inventory</button>          
+                <button onClick={()=>this.addProduct()}> Add to Inventory</button>          
             </div>
         )
     }
