@@ -1,0 +1,16 @@
+CREATE TABLE product (
+product_id SERIAL PRIMARY KEY,
+name VarChar(50) NOT NULL,
+price FLOAT NOT NULL,
+image_url TEXT NOT NULL
+)
+
+INSERT INTO product (name, price, image_url)
+values  ('MacBook Pro','1200','macbook_pro_pic.com'),
+        ('MacBook Air','1000','macbook_air_pic.com'),
+        ('Lenovo New','1100','lenovo_pic.com'),
+        ('Dell Inspiron','700','dell_inspiron_pic.com'), 
+        ('HP','650','hp_pic.com')
+
+SELECT * 
+FROM product
