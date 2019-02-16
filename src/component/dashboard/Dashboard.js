@@ -9,6 +9,8 @@ export default class Dashboard extends Component {
         };
     };
 
+    // delete=()=>{}
+
     render () {
         const mappedInventory = this.props.products.map(product => {
             return (
